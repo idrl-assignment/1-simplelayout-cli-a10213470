@@ -1,5 +1,5 @@
 import argparse
-
+import os.path
 
 def main():
     parser = argparse.ArgumentParser()
@@ -7,20 +7,22 @@ def main():
     parser.add_argument("unit_grid", type=int)
     parser.add_argument("unit_n", type=int)
     parser.add_argument("positions", type=int, nargs='+')
-    parser.add_argument("outdir", default='\example_dir', type=str)
+    parser.add_argument("outdir", default='example_dir', type=str)
     parser.add_argument("file_name", default='example', type=str)
     args = parser.parse_args()
-    if args.board_grid % args.unit_grid !=0: 
+    if args.board_grid % args.unit_grid != 0:
         SystemExit()
-    if len(args.positions)!= args.unit_n: 
+    if len(args.positions) != args.unit_n:
         SystemExit()
-    for i in args.positions: 
-        if i<0 or i>(args.board_grid/args.unit_grid)**2: 
+    for i in args.positions:
+        if i < 0 or i > (args.board_grid/args.unit_grid)**2:
             SystemExit()
-    with open(args.outdir+'/'+ args.file_name+ '.jpg', 'r') as f1:
+    if not os.path.exists(args.outdir):
+        os.makedirs(args.outdir)
+    with open(args.outdir + '/' + args.file_name + '.jpg', 'r') as _:
+        pass
+    with open(args.outdir + '/' + args.file_name + '.mat', 'r') as _:
         pass 
-    with open(args.outdir+'/'+ args.file_name+ '.mat', 'r') as f2:
-        pass   
     
 
 if __name__ == "__main__":
