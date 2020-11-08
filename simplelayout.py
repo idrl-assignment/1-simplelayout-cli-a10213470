@@ -12,16 +12,17 @@ def main():
     parser.add_argument(
                     "positions", 
                     help="the positions of every unit", 
-                    type=list)
+                    type=list)   
     parser.add_argument("outdir", help="the output directory",
                     type=str)
     parser.add_argument("file_name", help="the file name",
                     type=str)
     args = parser.parse_args()
-    print(args.square**2)
-    if args.board_grid % args.unit_grid !=0:
+    if args.board_grid % args.unit_grid !=0: 
         SystemExit()
-
+    for j in args.positions: 
+        if j<0 or j>(args.board_grid/args.unit_grid)^2: 
+            SystemExit()  
 
 
 if __name__ == "__main__":
