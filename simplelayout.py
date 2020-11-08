@@ -12,12 +12,15 @@ def main():
     args = parser.parse_args()
     if args.board_grid % args.unit_grid !=0: 
         SystemExit()
-    if len(positions)!= unit_n: 
+    if len(args.positions)!= args.unit_n: 
         SystemExit()
     for i in args.positions: 
-        if i<0 or i>(args.board_grid/args.unit_grid)^2: 
+        if i<0 or i>(args.board_grid/args.unit_grid)**2: 
             SystemExit()
-    with open(args.outdir+'/'+ args.file_name, 'r') as f1:  
+    with open(args.outdir+'/'+ args.file_name+ '.jpg', 'r') as f1:
+        pass 
+    with open(args.outdir+'/'+ args.file_name+ '.mat', 'r') as f2:
+        pass   
     
 
 if __name__ == "__main__":
