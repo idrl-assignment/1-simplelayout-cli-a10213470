@@ -1,5 +1,6 @@
 import argparse
 import os
+import sys
 
 
 def main():
@@ -12,12 +13,12 @@ def main():
     parser.add_argument("--file_name", default='file_name', type=str)
     args = parser.parse_args()
     if args.board_grid % args.unit_grid != 0:
-        SystemExit()
+        sys.exit()
     if len(args.positions) != args.unit_n:
-        SystemExit()
+        sys.exit()
     for i in args.positions:
         if i < 1 or i > (args.board_grid/args.unit_grid)**2:
-            SystemExit()
+            sys.exit()
     if not os.path.exists(args.outdir):
         os.makedirs(args.outdir)
     with open(args.outdir + '/' + args.file_name + '.jpg', 'w') as _:
