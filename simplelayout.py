@@ -17,7 +17,7 @@ def main():
     if len(args.positions) != args.unit_n:
         sys.exit()
     for i in args.positions:
-        if i < 0 or i > (args.board_grid/args.unit_grid)**2:
+        if i < 1 or i > (args.board_grid/args.unit_grid)**2:
             sys.exit()
     if not os.path.exists(args.outdir):
         os.makedirs(args.outdir)
