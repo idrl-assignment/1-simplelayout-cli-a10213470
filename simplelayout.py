@@ -9,8 +9,8 @@ def main():
     parser.add_argument("--unit_grid", type=int)
     parser.add_argument("--unit_n", type=int)
     parser.add_argument("--positions", type=int, nargs='+')
-    parser.add_argument("--outdir", type=str)
-    parser.add_argument("--file_name", type=str)
+    parser.add_argument("--outdir", default='example_dir', type=str)
+    parser.add_argument("--file_name", default='file_name', type=str)
     args = parser.parse_args()
     if args.board_grid % args.unit_grid != 0:
         sys.exit()
