@@ -25,7 +25,7 @@ def main():
         pass
     with open(args.outdir + '/' + args.file_name + '.mat', 'r') as _:
         pass
-  
+
 
 if __name__ == "__main__":
     main()
