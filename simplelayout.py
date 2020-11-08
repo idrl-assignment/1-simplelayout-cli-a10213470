@@ -3,27 +3,22 @@ import argparse
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("board_grid", help="the board grid",
-                    type=int)
-    parser.add_argument("unit_grid", help="the unit grid",
-                    type=int)
-    parser.add_argument("unit_n", help="the number of unit",
-                    type=int)
-    parser.add_argument(
-                    "positions", 
-                    help="the positions of every unit", 
-                    type=list)   
-    parser.add_argument("outdir", help="the output directory",
-                    type=str)
-    parser.add_argument("file_name", help="the file name",
-                    type=str)
+    parser.add_argument("board_grid", type=int)
+    parser.add_argument("unit_grid", type=int)
+    parser.add_argument("unit_n", type=int)
+    parser.add_argument("positions", type=int, nargs='+')
+    parser.add_argument("outdir", default='\example_dir', type=str)
+    parser.add_argument("file_name", default='example', type=str)
     args = parser.parse_args()
     if args.board_grid % args.unit_grid !=0: 
         SystemExit()
-    for j in args.positions: 
-        if j<0 or j>(args.board_grid/args.unit_grid)^2: 
-            SystemExit()  
-
+    if len(positions)!= unit_n: 
+        SystemExit()
+    for i in args.positions: 
+        if i<0 or i>(args.board_grid/args.unit_grid)^2: 
+            SystemExit()
+    with open(args.outdir+'/'+ args.file_name, 'r') as f1:  
+    
 
 if __name__ == "__main__":
     main()
